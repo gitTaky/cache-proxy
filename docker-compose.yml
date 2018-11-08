@@ -1,0 +1,11 @@
+version: '2'
+services:
+    web:
+       build: ./cache-proxy
+       user: nobody
+       command: bash -c "./proxy 12345"
+       volumes:
+         - ./cache-proxy:/code
+         - ./logs:/var/log/erss/
+       ports:
+         - "12345:12345"
